@@ -38,6 +38,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Vineet Singh" }],
   creator: "Vineet Singh",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
