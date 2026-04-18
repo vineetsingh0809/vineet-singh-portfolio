@@ -105,6 +105,12 @@
   box-shadow: var(--elevation-3);
 }
 
+:global(.light) .avatarBadge {
+  background: #eaeaea;
+  color: var(--color-secondary);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
 /* ── Bio Column ─────────────────────────────────────────────────────── */
 .bioHeading {
   font-family: var(--font-display);
@@ -163,7 +169,7 @@
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--color-text);
+  color: var(--color-primary);
   line-height: 1;
   letter-spacing: -0.02em;
 }

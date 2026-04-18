@@ -25,6 +25,11 @@
   border-color: var(--color-primary-a25);
 }
 
+:global(.light) .featuredCard:hover {
+  box-shadow: 0 8px 32px rgba(224, 0, 94, 0.12);
+  border-color: var(--color-primary-a25);
+}
+
 .featuredImageWrap {
   position: relative;
   height: 320px;
@@ -93,6 +98,26 @@
   color: var(--color-primary-light);
 }
 
+:global(.light) .featuredTag,
+:global(.light) .projectTag {
+  background: rgba(224, 0, 94, 0.08);
+  border-color: rgba(0, 122, 204, 0.18);
+  color: #0a0a0a;
+}
+
+:global(.light) .featuredTag:nth-child(even),
+:global(.light) .projectTag:nth-child(even) {
+  background: rgba(0, 122, 204, 0.08);
+  border-color: rgba(0, 122, 204, 0.18);
+  color: var(--color-secondary);
+}
+
+:global(.light) .featuredTag:hover,
+:global(.light) .projectTag:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 .featuredActions {
   display: flex;
   gap: 16px;
@@ -132,6 +157,11 @@
   box-shadow:
     -8px 0 30px rgba(99, 102, 241, 0.08),
     8px 0 30px rgba(16, 185, 129, 0.06);
+  border-color: var(--color-primary-a25);
+}
+
+:global(.light) .projectCard:hover {
+  box-shadow: 0 8px 32px rgba(224, 0, 94, 0.12);
   border-color: var(--color-primary-a25);
 }
 

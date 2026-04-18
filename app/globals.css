@@ -2,52 +2,63 @@
 
 @layer theme {
   :root {
-    /* ─── Primary — Electric Indigo ──────────────── */
-    --color-primary: #6366f1;
-    --color-primary-light: #818cf8;
-    --color-primary-dim: #4f46e5;
-    --color-primary-a10: rgba(99, 102, 241, 0.1);
-    --color-primary-a15: rgba(99, 102, 241, 0.15);
-    --color-primary-a25: rgba(99, 102, 241, 0.25);
-    --color-primary-a40: rgba(99, 102, 241, 0.4);
-    --color-primary-a50: rgba(99, 102, 241, 0.5);
+    color-scheme: dark;
+    --color-primary: #ff2d78;
+    --color-primary-light: #ff6b9d;
+    --color-primary-dim: #e61f66;
+    --color-primary-a08: rgba(255, 45, 120, 0.08);
+    --color-primary-a10: rgba(255, 45, 120, 0.1);
+    --color-primary-a15: rgba(255, 45, 120, 0.15);
+    --color-primary-a20: rgba(255, 45, 120, 0.2);
+    --color-primary-a25: rgba(255, 45, 120, 0.25);
+    --color-primary-a40: rgba(255, 45, 120, 0.4);
+    --color-primary-a50: rgba(255, 45, 120, 0.5);
 
-    /* ─── Secondary — Vivid Mint / Emerald ───────── */
-    --color-secondary: #10b981;
-    --color-secondary-light: #34d399;
-    --color-secondary-a10: rgba(16, 185, 129, 0.1);
-    --color-secondary-a15: rgba(16, 185, 129, 0.15);
-    --color-secondary-a25: rgba(16, 185, 129, 0.25);
-    --color-secondary-a40: rgba(16, 185, 129, 0.4);
+    --color-secondary: #00f5ff;
+    --color-secondary-light: #7ffffd;
+    --color-secondary-dim: #00d7e0;
+    --color-secondary-a08: rgba(0, 245, 255, 0.08);
+    --color-secondary-a10: rgba(0, 245, 255, 0.1);
+    --color-secondary-a15: rgba(0, 245, 255, 0.15);
+    --color-secondary-a25: rgba(0, 245, 255, 0.25);
+    --color-secondary-a40: rgba(0, 245, 255, 0.4);
 
-    /* ─── Backgrounds (Neutral Carbon) ───────────── */
-    --color-bg: #09090b;
-    --color-surface: #121214;
-    --color-surface-2: #18181b;
-    --color-surface-3: #27272a;
+    --color-bg: #080010;
+    --color-surface: #0f0020;
+    --color-surface-2: #1a0035;
+    --color-surface-3: #28004a;
+    --color-card-bg: rgba(255, 255, 255, 0.04);
 
-    /* Legacy aliases */
     --bg-base: var(--color-bg);
+    --bg-soft: var(--color-bg);
+    --bg-deep: var(--color-surface-2);
     --bg-surface-1: var(--color-surface);
     --bg-surface-2: var(--color-surface-2);
     --bg-surface-3: var(--color-surface-3);
+    --card-bg: var(--color-surface);
+    --primary-color: var(--color-primary);
+    --primary-color-20: var(--color-primary-a20);
+    --primary-color-40: var(--color-primary-a40);
+    --primary-faint: var(--color-primary-a10);
+    --secondary-color: var(--color-secondary);
 
-    /* ─── Text ──────────────────────────────────── */
-    --color-text: #fafafa;
-    --color-text-muted: #a1a1aa;
-    --color-text-dim: #71717a;
+    --color-text: #ffffff;
+    --color-text-muted: #a09ab5;
+    --color-text-dim: #7f7891;
 
-    /* Legacy aliases */
     --text-primary: var(--color-text);
     --text-secondary: var(--color-text-muted);
     --text-muted: var(--color-text-dim);
 
-    /* ─── Borders ───────────────────────────────── */
-    --color-border: #1e1e21;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --border-color: var(--color-border);
     --border-subtle: var(--color-border);
     --border-soft: var(--color-surface-2);
 
-    /* ─── Elevation Shadows ──────────────────────── */
+    --shadow-glow-pink: 0 0 30px rgba(255, 45, 120, 0.3);
+    --shadow-glow-cyan: 0 0 30px rgba(0, 245, 255, 0.3);
+    --primary-glow: 0 0 30px rgba(255, 45, 120, 0.3);
+
     --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.5);
     --elevation-2: 0 2px 4px rgba(0, 0, 0, 0.5);
     --elevation-3: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
@@ -55,29 +66,93 @@
       0 0 0 1px var(--color-border), 0 4px 12px rgba(0, 0, 0, 0.6);
     --elevation-hover:
       0 0 0 1px var(--color-primary-a25), 0 20px 40px -12px rgba(0, 0, 0, 0.7),
-      -4px 0 16px rgba(99, 102, 241, 0.12), 4px 0 16px rgba(16, 185, 129, 0.08);
+      -4px 0 16px rgba(255, 45, 120, 0.12), 4px 0 16px rgba(0, 245, 255, 0.08);
+    --shadow-stat-card: 0 4px 16px rgba(0, 0, 0, 0.35);
 
-    /* ─── Typography ─────────────────────────────── */
     --font-display: "Space Grotesk", sans-serif;
     --font-body: "Inter", sans-serif;
     --font-mono: "Fira Code", monospace;
 
-    /* Legacy aliases */
     --font-space: var(--font-display);
     --font-inter: var(--font-body);
     --font-fira: var(--font-mono);
 
-    /* ─── Radius ─────────────────────────────────── */
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 14px;
     --radius-xl: 20px;
     --radius-full: 9999px;
 
-    /* ─── Transitions ─────────────────────────────── */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-default: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .light {
+    color-scheme: light;
+    --color-primary: #e0005e;
+    --color-primary-light: #ff2d78;
+    --color-primary-dim: #c70053;
+    --color-primary-a08: rgba(224, 0, 94, 0.08);
+    --color-primary-a10: rgba(224, 0, 94, 0.1);
+    --color-primary-a15: rgba(224, 0, 94, 0.15);
+    --color-primary-a20: rgba(224, 0, 94, 0.2);
+    --color-primary-a25: rgba(224, 0, 94, 0.25);
+    --color-primary-a40: rgba(224, 0, 94, 0.4);
+    --color-primary-a50: rgba(224, 0, 94, 0.5);
+
+    --color-secondary: #007acc;
+    --color-secondary-light: #00a8e8;
+    --color-secondary-dim: #0066b2;
+    --color-secondary-a08: rgba(0, 122, 204, 0.08);
+    --color-secondary-a10: rgba(0, 122, 204, 0.1);
+    --color-secondary-a15: rgba(0, 122, 204, 0.15);
+    --color-secondary-a25: rgba(0, 122, 204, 0.25);
+    --color-secondary-a40: rgba(0, 122, 204, 0.4);
+
+    --color-bg: #f5f5f5;
+    --color-surface: #ffffff;
+    --color-surface-2: #eaeaea;
+    --color-surface-3: #dcdcdc;
+    --color-card-bg: rgba(0, 0, 0, 0.03);
+
+    --bg-base: var(--color-bg);
+    --bg-soft: var(--color-bg);
+    --bg-deep: var(--color-surface-2);
+    --bg-surface-1: var(--color-surface);
+    --bg-surface-2: var(--color-surface-2);
+    --bg-surface-3: var(--color-surface-3);
+    --card-bg: var(--color-surface);
+    --primary-color: var(--color-primary);
+    --primary-color-20: var(--color-primary-a20);
+    --primary-color-40: var(--color-primary-a40);
+    --primary-faint: var(--color-primary-a10);
+    --secondary-color: var(--color-secondary);
+
+    --color-text: #0a0a0a;
+    --color-text-muted: #555567;
+    --color-text-dim: #6f6f84;
+
+    --text-primary: var(--color-text);
+    --text-secondary: var(--color-text-muted);
+    --text-muted: var(--color-text-dim);
+
+    --color-border: rgba(0, 0, 0, 0.1);
+    --border-color: var(--color-border);
+    --border-subtle: var(--color-border);
+    --border-soft: var(--color-surface-2);
+
+    --shadow-glow-pink: 0 4px 20px rgba(224, 0, 94, 0.15);
+    --shadow-glow-cyan: 0 4px 20px rgba(0, 122, 204, 0.15);
+    --primary-glow: 0 4px 20px rgba(224, 0, 94, 0.15);
+
+    --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --elevation-2: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --elevation-3: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --elevation-card:
+      0 0 0 1px var(--color-border), 0 4px 12px rgba(0, 0, 0, 0.06);
+    --elevation-hover: 0 8px 32px rgba(224, 0, 94, 0.12);
+    --shadow-stat-card: 0 2px 12px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -88,6 +163,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition:
+    background-color 0.3s ease,
+    color 0.2s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 html {
@@ -271,6 +351,18 @@ h6 {
   transform: translateY(-1px);
 }
 
+:global(.light) .chip {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 122, 204, 0.25);
+  color: #0a0a0a;
+}
+
+:global(.light) .chip:hover {
+  background: rgba(224, 0, 94, 0.08);
+  border-color: var(--color-primary);
+  color: #0a0a0a;
+}
+
 /* ═══ Buttons ═════════════════════════════════════════════════════════ */
 .btn {
   display: inline-flex;
@@ -337,6 +429,18 @@ h6 {
   background: var(--color-primary-a10);
 }
 
+:global(.light) .icon-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-text-muted);
+}
+
+:global(.light) .icon-btn:hover {
+  background: rgba(224, 0, 94, 0.08);
+  border-color: rgba(224, 0, 94, 0.25);
+  color: var(--color-primary);
+}
+
 /* ═══ Card Base ═══════════════════════════════════════════════════════ */
 .card {
   background: var(--color-surface);
@@ -357,11 +461,12 @@ h6 {
 
 /* ═══ Stat Card ═══════════════════════════════════════════════════════ */
 .stat-card {
-  background: var(--color-surface-2);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 24px;
   text-align: center;
+  box-shadow: var(--shadow-stat-card);
   transition: all var(--transition-default);
 }
 
@@ -442,7 +547,7 @@ h6 {
   width: 100%;
   padding: 14px 18px;
   min-height: 54px;
-  background: var(--color-surface-2);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text);
@@ -460,7 +565,7 @@ h6 {
 
 .form-input:focus {
   border-color: var(--color-primary);
-  background: var(--color-bg);
+  background: var(--color-surface);
 }
 
 /* ═══ Gradient Text ══════════════════════════════════════════════════ */

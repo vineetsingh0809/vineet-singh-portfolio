@@ -115,6 +115,17 @@
   box-shadow: -4px 0 20px var(--color-primary-a10);
 }
 
+:global(.light) .socialLink {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+:global(.light) .socialLink:hover {
+  background: rgba(224, 0, 94, 0.06);
+  border-color: rgba(224, 0, 94, 0.25);
+  box-shadow: -4px 0 20px rgba(224, 0, 94, 0.08);
+}
+
 .socialIconBox {
   width: 44px;
   height: 44px;
@@ -129,10 +140,22 @@
   transition: all var(--transition-fast);
 }
 
+:global(.light) .socialIconBox {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--color-text-muted);
+}
+
 .socialLink:hover .socialIconBox {
   color: var(--color-primary);
   border-color: var(--color-primary-a25);
   background: var(--color-primary-a15);
+}
+
+:global(.light) .socialLink:hover .socialIconBox {
+  color: var(--color-primary);
+  border-color: rgba(224, 0, 94, 0.25);
+  background: rgba(224, 0, 94, 0.08);
 }
 
 .socialInfo {
@@ -160,6 +183,11 @@
   border: 1px solid var(--color-secondary-a25);
   border-radius: var(--radius-lg);
   text-align: center;
+}
+
+:global(.light) .successBox {
+  background: rgba(224, 0, 94, 0.08);
+  border-color: rgba(224, 0, 94, 0.25);
 }
 
 .successEmoji {
@@ -196,6 +224,10 @@
   letter-spacing: 0.1em;
   color: var(--color-text-dim);
   margin-bottom: 10px;
+}
+
+:global(.light) .fieldLabel {
+  color: var(--color-text-muted);
 }
 
 .sendBtn {

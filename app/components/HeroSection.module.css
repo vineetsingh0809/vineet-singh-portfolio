@@ -41,6 +41,12 @@
   font-weight: 600;
 }
 
+:global(.light) .badge {
+  background: rgba(224, 0, 94, 0.08);
+  border-color: rgba(224, 0, 94, 0.25);
+  color: var(--color-primary);
+}
+
 .badgeDot {
   width: 8px;
   height: 8px;
@@ -48,6 +54,11 @@
   border-radius: 50%;
   box-shadow: 0 0 12px var(--color-secondary);
   animation: pulse 2s infinite;
+}
+
+:global(.light) .badgeDot {
+  background: var(--color-primary);
+  box-shadow: 0 0 10px rgba(224, 0, 94, 0.45);
 }
 
 @keyframes pulse {
@@ -87,6 +98,13 @@
   filter: drop-shadow(0 0 20px var(--color-primary-a15));
 }
 
+:global(.light) .nameHighlight {
+  background: none;
+  -webkit-text-fill-color: var(--color-primary);
+  color: var(--color-primary);
+  filter: drop-shadow(0 0 10px rgba(224, 0, 94, 0.12));
+}
+
 .typewriterWrap {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
@@ -98,6 +116,10 @@
 
 .typewriterText {
   color: var(--color-text);
+}
+
+:global(.light) .typewriterText {
+  color: var(--color-secondary);
 }
 
 .typewriterCursor {
@@ -122,6 +144,10 @@
   max-width: 600px;
   margin: 0 auto 48px;
   line-height: 1.8;
+}
+
+:global(.light) .description {
+  color: var(--color-text-muted);
 }
 
 /* ── CTA Buttons ────────────────────────────────────────────────────── */
@@ -177,6 +203,15 @@
   filter: blur(80px);
   z-index: 1;
   pointer-events: none;
+}
+
+:global(.light) .heroBlob {
+  background: radial-gradient(
+    circle,
+    rgba(224, 0, 94, 0.08) 0%,
+    rgba(0, 122, 204, 0.06) 50%,
+    transparent 70%
+  );
 }
 
 .geoCircle1,
@@ -255,6 +290,10 @@
 
 .scrollIndicator:hover {
   color: var(--color-primary);
+}
+
+:global(.light) .scrollIndicator {
+  color: var(--color-text-muted);
 }
 
 /* ── Mobile ─────────────────────────────────────────────────────────── */

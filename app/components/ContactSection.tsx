@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Send, MapPin } from "lucide-react";
-import { FaGithub, FaLinkedinIn, FaXTwitter, FaEnvelope } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa6";
 import { useState, FormEvent } from "react";
 import styles from "./ContactSection.module.css";
 

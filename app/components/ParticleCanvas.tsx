@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { useEffect, useRef } from "react";
 
 interface Dot {
@@ -17,6 +18,9 @@ export default function ParticleCanvas() {
   const animRef = useRef<number>(0);
   const dotsRef = useRef<Dot[]>([]);
   const mouseRef = useRef({ x: -9999, y: -9999 });
+  const { resolvedTheme, theme } = useTheme();
+  const activeTheme = resolvedTheme ?? theme ?? "dark";
+  const isLight = activeTheme === "light";
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -37,7 +41,7 @@ export default function ParticleCanvas() {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
-        alpha: Math.random() * 0.4 + 0.1,
+        alpha: isLight ? Math.random() * 0.12 + 0.04 : Math.random() * 0.4 + 0.1,
         radius: Math.random() * 2 + 1,
         color: (i % 2 === 0 ? "indigo" : "mint") as "indigo" | "mint",
       }));
@@ -62,7 +66,13 @@ export default function ParticleCanvas() {
           dot.y -= dy * 0.03;
         }
 
-        const rgb = dot.color === "indigo" ? "99, 102, 241" : "16, 185, 129";
+        const rgb = isLight
+          ? dot.color === "indigo"
+            ? "224, 0, 94"
+            : "0, 122, 204"
+          : dot.color === "indigo"
+            ? "255, 45, 120"
+            : "0, 245, 255";
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${rgb}, ${dot.alpha})`;
@@ -79,8 +89,14 @@ export default function ParticleCanvas() {
             ctx.beginPath();
             ctx.moveTo(dot.x, dot.y);
             ctx.lineTo(other.x, other.y);
-            const rgb = dot.color === "indigo" ? "99, 102, 241" : "16, 185, 129";
-            ctx.strokeStyle = `rgba(${rgb}, ${0.08 * (1 - dist / 120)})`;
+            const rgb = isLight
+              ? dot.color === "indigo"
+                ? "224, 0, 94"
+                : "0, 122, 204"
+              : dot.color === "indigo"
+                ? "255, 45, 120"
+                : "0, 245, 255";
+            ctx.strokeStyle = `rgba(${rgb}, ${isLight ? 0.05 : 0.08 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -106,13 +122,13 @@ export default function ParticleCanvas() {
       window.removeEventListener("resize", resize);
       canvas.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [isLight]);
 
   return (
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ opacity: 0.7 }}
+      style={{ opacity: isLight ? 0.5 : 0.7 }}
       aria-hidden="true"
     />
   );

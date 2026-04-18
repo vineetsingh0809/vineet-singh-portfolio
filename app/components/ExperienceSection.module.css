@@ -58,6 +58,11 @@
   border-color: var(--color-primary-a25);
 }
 
+:global(.light) .card:hover {
+  box-shadow: 0 8px 32px rgba(224, 0, 94, 0.12);
+  border-color: var(--color-primary-a25);
+}
+
 .cardTopBar {
   height: 3px;
   background: linear-gradient(
@@ -98,12 +103,25 @@
   font-weight: 600;
 }
 
+:global(.light) .cardCompany {
+  color: var(--color-secondary);
+}
+
 .cardSep {
   color: var(--color-text-dim);
 }
 
 .cardPeriod {
   color: var(--color-text-muted);
+}
+
+:global(.light) .cardPeriod {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(224, 0, 94, 0.08);
+  color: var(--color-primary);
 }
 
 .cardLocation {
@@ -150,6 +168,12 @@
   font-size: 0.75rem;
   font-family: var(--font-mono);
   font-weight: 500;
+}
+
+:global(.light) .techChip {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 122, 204, 0.25);
+  color: #0a0a0a;
 }
 
 /* ── Mobile ─────────────────────────────────────────────────────────── */

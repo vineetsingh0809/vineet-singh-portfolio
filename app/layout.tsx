@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Code, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Providers from "./providers";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -68,6 +69,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${inter.variable} ${firaCode.variable}`}
       style={{
         fontFamily: "var(--font-inter), sans-serif",
@@ -78,8 +80,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#080010" />
       </head>
       <body className="antialiased">
-        {children}
-        <ScrollToTop />
+        <Providers>
+          {children}
+          <ScrollToTop />
+        </Providers>
       </body>
     </html>
   );
