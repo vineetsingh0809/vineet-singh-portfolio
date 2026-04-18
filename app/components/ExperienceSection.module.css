@@ -47,7 +47,32 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   position: relative;
+  overflow: hidden;
+  isolation: isolate;
   transition: all var(--transition-default);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 42%,
+    var(--hover-sheen-soft) 48%,
+    var(--hover-sheen-accent) 50%,
+    var(--hover-sheen-soft) 52%,
+    transparent 58%
+  );
+  transform: translateX(-130%) rotate(10deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  opacity: 1;
+  animation: experience-shimmer 1.05s ease;
 }
 
 .card:hover {
@@ -204,5 +229,20 @@
   .timelineWrap {
     padding-left: 0;
     border-left: none;
+  }
+}
+
+@keyframes experience-shimmer {
+  from {
+    transform: translateX(-130%) rotate(10deg);
+  }
+  to {
+    transform: translateX(130%) rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card::after {
+    animation: none !important;
   }
 }

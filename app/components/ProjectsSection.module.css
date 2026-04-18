@@ -11,23 +11,54 @@
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  position: relative;
+  isolation: isolate;
   transition:
     transform var(--transition-default),
     box-shadow var(--transition-default),
     border-color var(--transition-default);
 }
 
+.featuredCard::after,
+.projectCard::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 42%,
+    var(--hover-sheen-soft) 48%,
+    var(--hover-sheen-accent) 50%,
+    var(--hover-sheen-soft) 52%,
+    transparent 58%
+  );
+  transform: translateX(-130%) rotate(10deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.featuredCard:hover::after,
+.projectCard:hover::after {
+  opacity: 1;
+  animation: project-shimmer 1.05s ease;
+}
+
 .featuredCard:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow:
-    -10px 0 40px rgba(99, 102, 241, 0.1),
-    10px 0 40px rgba(16, 185, 129, 0.08);
-  border-color: var(--color-primary-a25);
+    0 18px 40px rgba(0, 0, 0, 0.18),
+    -8px 0 26px rgba(255, 45, 120, 0.1),
+    8px 0 26px rgba(0, 245, 255, 0.1);
+  border-color: var(--color-primary-a20);
 }
 
 :global(.light) .featuredCard:hover {
-  box-shadow: 0 8px 32px rgba(224, 0, 94, 0.12);
-  border-color: var(--color-primary-a25);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(224, 0, 94, 0.1),
+    0 10px 24px rgba(0, 122, 204, 0.08);
+  border-color: rgba(224, 0, 94, 0.2);
 }
 
 .featuredImageWrap {
@@ -94,8 +125,13 @@
 }
 
 .featuredTag:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-a25);
   color: var(--color-primary-light);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 45, 120, 0.12),
+    rgba(0, 245, 255, 0.12)
+  );
 }
 
 :global(.light) .featuredTag,
@@ -149,20 +185,26 @@
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
+  position: relative;
+  isolation: isolate;
   transition: all var(--transition-default);
 }
 
 .projectCard:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow:
-    -8px 0 30px rgba(99, 102, 241, 0.08),
-    8px 0 30px rgba(16, 185, 129, 0.06);
-  border-color: var(--color-primary-a25);
+    0 16px 34px rgba(0, 0, 0, 0.16),
+    -6px 0 22px rgba(255, 45, 120, 0.08),
+    6px 0 22px rgba(0, 245, 255, 0.08);
+  border-color: var(--color-primary-a20);
 }
 
 :global(.light) .projectCard:hover {
-  box-shadow: 0 8px 32px rgba(224, 0, 94, 0.12);
-  border-color: var(--color-primary-a25);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(224, 0, 94, 0.1),
+    0 10px 24px rgba(0, 122, 204, 0.07);
+  border-color: rgba(224, 0, 94, 0.2);
 }
 
 .projectImageWrap {
@@ -210,6 +252,16 @@
   color: var(--color-text-dim);
   font-size: 0.75rem;
   font-family: var(--font-mono);
+}
+
+.projectTag:hover {
+  border-color: var(--color-primary-a25);
+  color: var(--color-primary-light);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 45, 120, 0.12),
+    rgba(0, 245, 255, 0.12)
+  );
 }
 
 .projectActions {
@@ -264,5 +316,21 @@
   }
   .featuredDesc {
     font-size: 0.9375rem;
+  }
+}
+
+@keyframes project-shimmer {
+  from {
+    transform: translateX(-130%) rotate(10deg);
+  }
+  to {
+    transform: translateX(130%) rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featuredCard::after,
+  .projectCard::after {
+    animation: none !important;
   }
 }

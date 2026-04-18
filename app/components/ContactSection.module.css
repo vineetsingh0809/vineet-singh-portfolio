@@ -105,14 +105,46 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   transition: all var(--transition-default);
 }
 
+.socialLink::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 42%,
+    var(--hover-sheen-soft) 48%,
+    var(--hover-sheen-accent) 50%,
+    var(--hover-sheen-soft) 52%,
+    transparent 58%
+  );
+  transform: translateX(-130%) rotate(10deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.socialLink:hover::after {
+  opacity: 1;
+  animation: social-shimmer 1.05s ease;
+}
+
 .socialLink:hover {
-  border-color: var(--color-primary);
-  background: var(--color-primary-a10);
-  transform: translateX(8px);
-  box-shadow: -4px 0 20px var(--color-primary-a10);
+  border-color: var(--color-primary-a20);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 45, 120, 0.12),
+    rgba(0, 245, 255, 0.12)
+  );
+  transform: translateX(6px);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
 }
 
 :global(.light) .socialLink {
@@ -121,9 +153,13 @@
 }
 
 :global(.light) .socialLink:hover {
-  background: rgba(224, 0, 94, 0.06);
-  border-color: rgba(224, 0, 94, 0.25);
-  box-shadow: -4px 0 20px rgba(224, 0, 94, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(224, 0, 94, 0.1),
+    rgba(0, 122, 204, 0.1)
+  );
+  border-color: rgba(224, 0, 94, 0.18);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
 }
 
 .socialIconBox {
@@ -148,14 +184,22 @@
 
 .socialLink:hover .socialIconBox {
   color: var(--color-primary);
-  border-color: var(--color-primary-a25);
-  background: var(--color-primary-a15);
+  border-color: var(--color-primary-a20);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 45, 120, 0.12),
+    rgba(0, 245, 255, 0.12)
+  );
 }
 
 :global(.light) .socialLink:hover .socialIconBox {
   color: var(--color-primary);
-  border-color: rgba(224, 0, 94, 0.25);
-  background: rgba(224, 0, 94, 0.08);
+  border-color: rgba(224, 0, 94, 0.18);
+  background: linear-gradient(
+    135deg,
+    rgba(224, 0, 94, 0.12),
+    rgba(0, 122, 204, 0.12)
+  );
 }
 
 .socialInfo {
@@ -287,6 +331,21 @@
   width: 18px;
   height: 18px;
   animation: spin 0.8s linear infinite;
+}
+
+@keyframes social-shimmer {
+  from {
+    transform: translateX(-130%) rotate(10deg);
+  }
+  to {
+    transform: translateX(130%) rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialLink::after {
+    animation: none !important;
+  }
 }
 
 @keyframes spin {
