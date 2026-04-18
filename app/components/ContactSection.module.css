@@ -1,0 +1,243 @@
+/* ── Contact Section ────────────────────────────────────────────────── */
+.section {
+  padding: 120px 0;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Geometric circles ──────────────────────────────────────────────── */
+.geoRing1 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary-a10);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.geoRing2 {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  border: 1px solid var(--color-secondary-a10);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ── Inner content (above geo rings) ─────────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.headerDesc {
+  color: var(--color-text-muted);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 580px;
+  margin: 0 auto 32px;
+}
+
+.locationChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.locationIcon {
+  color: var(--color-secondary);
+}
+
+/* ── Two-column grid ────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 64px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ── Section titles ─────────────────────────────────────────────────── */
+.connectTitle,
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+/* ── Social links ───────────────────────────────────────────────────── */
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-default);
+}
+
+.socialLink:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-a10);
+  transform: translateX(8px);
+  box-shadow: -4px 0 20px var(--color-primary-a10);
+}
+
+.socialIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+}
+
+.socialLink:hover .socialIconBox {
+  color: var(--color-primary);
+  border-color: var(--color-primary-a25);
+  background: var(--color-primary-a15);
+}
+
+.socialInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.socialLabel {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.socialUsername {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-dim);
+}
+
+/* ── Success box ────────────────────────────────────────────────────── */
+.successBox {
+  padding: 48px 32px;
+  background: var(--color-secondary-a10);
+  border: 1px solid var(--color-secondary-a25);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.successEmoji {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.successTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 12px;
+}
+
+.successMsg {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+/* ── Form ────────────────────────────────────────────────────────────── */
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 0.8125rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+  margin-bottom: 10px;
+}
+
+.sendBtn {
+  font-size: 0.9375rem !important;
+  padding: 16px 32px !important;
+  width: 100%;
+  justify-content: center;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .section {
+    padding: 4rem 0;
+  }
+  .header {
+    margin-bottom: 48px;
+  }
+  .geoRing1,
+  .geoRing2 {
+    display: none;
+  }
+  .grid {
+    gap: 40px;
+  }
+
+  .socialLink {
+    padding: 16px;
+  }
+}

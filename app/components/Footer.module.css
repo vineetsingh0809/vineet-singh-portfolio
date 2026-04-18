@@ -1,0 +1,107 @@
+/* ── Footer ─────────────────────────────────────────────────────────── */
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 48px 0;
+  position: relative;
+}
+
+/* Top gradient accent line */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ── Logo Group ─────────────────────────────────────────────────────── */
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-a10);
+  border: 1px solid var(--color-primary-a25);
+  color: var(--color-primary);
+}
+
+.copyright {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-dim);
+}
+
+.copyrightName {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.copyrightHeart {
+  color: var(--color-primary-light);
+  display: inline-block;
+}
+
+/* ── Social Row ─────────────────────────────────────────────────────── */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialBtn {
+  width: 38px;
+  height: 38px;
+}
+
+.scrollTopBtn {
+  width: 38px;
+  height: 38px;
+  background: var(--color-surface-2) !important;
+  color: var(--color-secondary) !important;
+}
+
+.scrollTopBtn:hover {
+  background: var(--color-secondary-a10) !important;
+  border-color: var(--color-secondary) !important;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logoGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .socialRow {
+    justify-content: center;
+  }
+}
