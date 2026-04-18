@@ -174,7 +174,7 @@ export default function HeroSection() {
             className={styles.statsRow}
           >
             {[
-              { number: "4+", label: "Years Experience" },
+              { number: "4.6+", label: "Years Experience" },
               { number: "30%", label: "Load Time Reduced" },
               { number: "40%", label: "API Calls Reduced" },
             ].map((stat) => (

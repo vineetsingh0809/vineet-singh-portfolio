@@ -12,7 +12,7 @@ type ContactPayload = {
 type ContactErrors = Partial<Record<keyof ContactPayload, string>>;
 
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
-const RATE_LIMIT_MAX_REQUESTS = 20;
+const RATE_LIMIT_MAX_REQUESTS = 3;
 const requestsByIp = new Map<string, number[]>();
 
 const PLACEHOLDER_VALUES = new Set([
